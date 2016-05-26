@@ -1,0 +1,28 @@
+{
+  "name": "http-proxy-stream",
+  "version": "0.0.0",
+  "description": "Provide a streaming interface for performing http-proxying",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jcrugzz/http-proxy-stream.git"
+  },
+  "keywords": [
+    "http",
+    "proxy",
+    "http-proxy",
+    "streaming"
+  ],
+  "author": "Jarrett Cruger <jcrugzz@gmail.com>",
+  "contributors: [
+    "Christopher Lee <lee.christophermark@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcrugzz/http-proxy-stream/issues"
+  },
+  "homepage": "https://github.com/jcrugzz/http-proxy-stream#readme"
+}
