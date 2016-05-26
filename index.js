@@ -1,6 +1,6 @@
 'use strict';
 
-var Duplexify = require('duplexify');
+var duplexify = require('duplexify');
 var util = require('util');
 var url = require('url');
 var http = require('http-https');
@@ -22,16 +22,27 @@ function HttpProxyStream (options) {
 
   this.stream._proxy = this;
 
+  //
+  // See if we can get the request stream on the pipe event
+  //
+  this.stream.once('pipe', this._onPipe.bind(this));
+
   return this.stream;
 }
 
 HttpProxyStream.prototype._onPipe = function onPipe(req) {
-  debug(req.url);
+  debug(`${req.method} - ${req.url}`);
   //
   // Remark: We are accepting the options from httpProxy.setupOutgoing in
   // common.js which returns us all the parameters we need in order to make the
   // request. To make this more generic, we may need to inspect the request we
   // are getting
-  this.request = http.request(this.options);
+  this.request = http.request(
+    Object.assign({ method: req.method }, this.options)
+  );
 
   this.stream.setWritable(this.request);
+  this.request.on('response', (res) => {
+    this.stream.setReadable(res);
+  });
+};

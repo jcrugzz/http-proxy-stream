@@ -4,7 +4,7 @@
   "description": "Provide a streaming interface for performing http-proxying",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,25 @@
     "streaming"
   ],
   "author": "Jarrett Cruger <jcrugzz@gmail.com>",
-  "contributors: [
-    "Christopher Lee <lee.christophermark@gmail.com>"
+  "contributors": [
+    {
+      "name": "Christopher Lee",
+      "email": "lee.christophermark@gmail.com"
+    }
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jcrugzz/http-proxy-stream/issues"
   },
-  "homepage": "https://github.com/jcrugzz/http-proxy-stream#readme"
+  "homepage": "https://github.com/jcrugzz/http-proxy-stream#readme",
+  "devDependencies": {
+    "assume": "~1.4.1",
+    "bl": "~1.1.2",
+    "mocha": "~2.5.3"
+  },
+  "dependencies": {
+    "diagnostics": "~1.0.1",
+    "duplexify": "~3.4.3",
+    "http-https": "~1.0.0"
+  }
 }
